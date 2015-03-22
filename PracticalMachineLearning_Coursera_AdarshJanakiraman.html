@@ -243,7 +243,7 @@ trainControl(method=&quot;cv&quot;,number=3)</code></pre>
 ## 
 ## Accuracy was used to select the optimal model using  the largest value.
 ## The final value used for the model was cp = 0.03283799.</code></pre>
-<p>But as seen from the results of this model, the accuracy is quite low, even in the training set, let alone the test set.</p>
+<p>But as seen from the results of this model, the accuracy is quite low (50% only), even in the training set, let alone the test set.</p>
 </div>
 <div id="random-forest" class="section level3">
 <h3>Random forest</h3>
@@ -273,7 +273,7 @@ trainControl(method=&quot;cv&quot;,number=3)</code></pre>
 ## 
 ## Accuracy was used to select the optimal model using  the largest value.
 ## The final value used for the model was mtry = 27.</code></pre>
-<p>Since the accuracy was much higher this time. I decided to validate this against the test set.</p>
+<p>Since the in sample error rate was very low this time. I decided to validate this against the test set.</p>
 <pre class="r"><code>preds &lt;- predict(modelFitRF, newdata=testing)
 confusionMatrix(preds, testing$classe)</code></pre>
 <pre><code>## Confusion Matrix and Statistics
@@ -307,7 +307,7 @@ confusionMatrix(preds, testing$classe)</code></pre>
 ## Detection Rate         0.2841   0.1924   0.1727   0.1615   0.1827
 ## Detection Prevalence   0.2847   0.1940   0.1751   0.1631   0.1831
 ## Balanced Accuracy      0.9983   0.9963   0.9936   0.9922   0.9974</code></pre>
-<p>The confusion matrix showed an accuracy of close to 99% which was sufficient to prove that this model was working and could be applied to the validation set.</p>
+<p>The confusion matrix showed an over accuracy of greater than 99% (very low out of sample error) which was sufficient to instil confidence in these results and that this model was working and could be applied to the validation set.</p>
 </div>
 </div>
 <div id="model-validation" class="section level2">
